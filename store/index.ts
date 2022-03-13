@@ -1,8 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore} from '@reduxjs/toolkit'
 import { persistStore } from 'redux-persist'
+import global from './global'
+import loading from './loading'
+import authReducer from './auth'
 
  const store = configureStore({
-  reducer: {},
+  reducer: {
+    global:global,
+    loading: loading,
+    auth:authReducer,
+  },
+  middleware:(getDefaultMiddleware)=>getDefaultMiddleware({
+    serializableCheck:false,
+    immutableCheck: false
+  })
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
