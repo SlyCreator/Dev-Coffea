@@ -3,16 +3,12 @@ import { StyleSheet, View, Platform } from 'react-native';
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider, IconRegistry, Layout, Text } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons'
-import {PersistGateProps} from 'redux-persist/es/integration/react'
-
 import store, { persistor } from './store'
 // import useCachedResources from './hooks/useCachedResources'
 // import { useAppSelector } from './store/hooks'
 // import { StyleVariables } from './constants/Variables'
-// import Navigation from './navigation'
-// import { EvaIconsPack } from '@ui-kitten/eva-icons'
-// import 'intl'
-// import 'intl/locale-data/jsonp/en'
+import 'intl'
+import 'intl/locale-data/jsonp/en'
 // import './module/i18n'
 import mapping from './mapping.json'
 import theme from './theme.json'
@@ -60,19 +56,12 @@ export default function App() {
 }
 
 
-const HomeScreen = () => (
-  <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text category='h1'>HOME</Text>
-  </Layout>
-);
-
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 });
