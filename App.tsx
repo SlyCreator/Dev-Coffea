@@ -1,11 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Platform } from 'react-native';
+import {StatusBar, StyleSheet, View, Platform } from 'react-native';
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider, IconRegistry, Layout, Text } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons'
 import store, { persistor } from './store'
-// import useCachedResources from './hooks/useCachedResources'
-// import { useAppSelector } from './store/hooks'
+import { heightPercentageToDP } from 'react-native-responsive-screen'
+ //import useCachedResources from './hooks/useCachedResources'
+ import { useAppSelector } from './store/hooks'
 // import { StyleVariables } from './constants/Variables'
 import 'intl'
 import 'intl/locale-data/jsonp/en'
@@ -35,7 +35,7 @@ if (Platform.OS === 'android') {
 
 export default function App() {
   return (
-    <View>
+    <View style={{ height: heightPercentageToDP('100%') }}>
       <ApplicationProvider
         {...eva}
         customMapping={mapping as any}
@@ -45,6 +45,7 @@ export default function App() {
           <PersistGate loading={null} persistor={persistor} >
             <QueryClientProvider client={queryClient}>
               <SafeAreaProvider>
+                <StatusBar barStyle="light-content" />
                 <Navigation colorScheme="light"/>
               </SafeAreaProvider>
             </QueryClientProvider>
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
