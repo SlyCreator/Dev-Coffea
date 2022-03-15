@@ -1,11 +1,17 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
+import tw from 'tailwind-react-native-classnames'
+import StackScreen from '../components/StackScreen'
 
 const HomeScreen = () => {
     return (
-        <View style={{flex:1}}>
-            <Text style={{color:'#2B4780'}}>Home Page</Text>
-        </View>
+        <ScrollView showsVerticalScrollIndicator={false}>
+            <StackScreen style={tw`flex-1 bg-white`}>
+                <View>
+                    <Text>Dd</Text>
+                </View>
+            </StackScreen>
+        </ScrollView>
     )
 }
 

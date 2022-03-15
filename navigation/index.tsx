@@ -17,6 +17,8 @@ import { goBack, navigationRef, route } from './globalNavigation'
 import { ColorSchemeName, Pressable, Text, View } from 'react-native'
 import SignUpScreen from '../screens/SignUpScreen'
 import HomeScreen from '../screens/HomeScreen'
+import SignInScreen from '../screens/SignInScreen'
+import FirstScreen from '../screens/FirstScreen'
 
 
 
@@ -28,15 +30,12 @@ export default function Navigation({
   return (
     <NavigationContainer
       ref={navigationRef}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
-    //  theme={colorScheme != 'light' ? DarkTheme : DefaultTheme}
-      onStateChange={(state)=>{
+
+      theme={colorScheme != 'light' ? DarkTheme : DefaultTheme}
+      onStateChange={(state) => {
         route.next(state?.routes[state.index])
       }
-    
-    
-    
-    }
+      }
     >
       <RootNavigator initialRouteName={'Root'} />
     </NavigationContainer>
@@ -62,7 +61,7 @@ const Header = (props: NativeStackHeaderProps) => {
       <View style={{ width: '30%', justifyContent: 'center' }}>
         <Pressable
           onPress={() => {
-
+            goBack()
           }}
         >
           <Feather name={'arrow-left'} size={25} />
@@ -80,7 +79,9 @@ const Header = (props: NativeStackHeaderProps) => {
 export function RootNavigator({ initialRouteName }: RootNavigationProps) {
   return (
     <Stack.Navigator >
-      <Stack.Screen name="SignUp" component={SignUpScreen} />
+      <Stack.Screen name="Welcome" component={FirstScreen} options={{headerShown:false}}/>
+      <Stack.Screen name="SignUp" component={SignUpScreen}   options={{headerShown:false}}/>
+      <Stack.Screen name="SignIn" component={SignInScreen}  options={{headerShown:false}} />
       <Stack.Screen name="Root" component={BottomTabNavigator} />
     </Stack.Navigator>
   )
@@ -121,7 +122,7 @@ function BottomTabNavigator() {
         }}
       />
 
-<BottomTab.Screen
+      <BottomTab.Screen
         name="Home"
         component={HomeScreen}
         options={({ route: route1 }) => {
@@ -138,7 +139,7 @@ function BottomTabNavigator() {
         }}
       />
 
-<BottomTab.Screen
+      <BottomTab.Screen
         name="Home"
         component={HomeScreen}
         options={({ route: route1 }) => {
@@ -155,7 +156,7 @@ function BottomTabNavigator() {
         }}
       />
 
-<BottomTab.Screen
+      <BottomTab.Screen
         name="Home"
         component={HomeScreen}
         options={({ route: route1 }) => {
@@ -183,7 +184,7 @@ function BottomTabNavigator() {
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
- function TabBarIcon(props: {
+function TabBarIcon(props: {
   name: React.ComponentProps<typeof MaterialCommunityIcons>['name']
   color: string
 }) {
