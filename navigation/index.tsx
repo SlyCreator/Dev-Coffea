@@ -135,7 +135,7 @@ function BottomTabNavigator() {
             tabBarIcon: ({ color }) => (
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 {/* <SvgHome stroke={color} /> */}
-                <Text style={{ color, textAlign: 'center' }}>Home</Text>
+                <Text style={{ color, textAlign: 'center' }}>Menu</Text>
               </View>
             ),
           }
@@ -152,7 +152,7 @@ function BottomTabNavigator() {
             tabBarIcon: ({ color }) => (
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 {/* <SvgHome stroke={color} /> */}
-                <Text style={{ color, textAlign: 'center' }}>Home</Text>
+                <Text style={{ color, textAlign: 'center' }}>Order</Text>
               </View>
             ),
           }
@@ -169,7 +169,7 @@ function BottomTabNavigator() {
             tabBarIcon: ({ color }) => (
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 {/* <SvgHome stroke={color} /> */}
-                <Text style={{ color, textAlign: 'center' }}>Home</Text>
+                <Text style={{ color, textAlign: 'center' }}>Profile</Text>
               </View>
             ),
           }

@@ -7,7 +7,7 @@ const HomeScreen = () => {
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
             <StackScreen style={tw`flex-1 bg-white`}>
-                <View>
+                <View style={tw`bg-white flex-1`}>
                     <Text>Dd</Text>
                 </View>
             </StackScreen>
