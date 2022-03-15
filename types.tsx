@@ -24,8 +24,9 @@ export type RootStackParamList = {
   Success: undefined
   VerifyEmail: undefined
   Home: undefined
-
-
+  Menu:undefined
+  Order:undefined
+  Profile:undefined
   Root: NavigatorScreenParams<RootTabParamList> | undefined
 }
 

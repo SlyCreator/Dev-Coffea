@@ -23,6 +23,24 @@ const SignUpScreen = () => {
         phone:''
     })
 
+
+    const onHome = ()=>{
+        // if (!EmailRegex.test(value?.email)) {
+        //     showErrorAlert({
+        //       toast: {
+        //         message: t('Please enter a valid email.'),
+        //         type: 'warning',
+        //       },
+        //     })
+        //     return
+        //   }
+      
+          //dispatchStore(setLoading(true))
+          //TODO: Add Api
+          dispatch(StackActions.push('Root'))
+       // }
+    }
+
     return (
         <View style={tw`bg-white flex-1`}>
             <KeyboardAwareScrollView contentContainerStyle={tw`bg-white flex-1`}>
@@ -105,12 +123,13 @@ const SignUpScreen = () => {
                         </View>
                         <View>
                             <Button 
-                                title='Login'
+                                title='Sign-Up'
                                 titleStyle={{
                                     color:'#FFF',
                                     textTransform:'none',
                                     fontSize:14
                                 }}
+                                onPress={onHome}
                             />
                         </View>
                    </View>

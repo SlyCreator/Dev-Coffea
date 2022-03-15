@@ -19,6 +19,9 @@ import SignUpScreen from '../screens/SignUpScreen'
 import HomeScreen from '../screens/HomeScreen'
 import SignInScreen from '../screens/SignInScreen'
 import FirstScreen from '../screens/FirstScreen'
+import MenuScreen from '../screens/MenuScreen'
+import OrderScreen from '../screens/OrderScreen'
+import ProfileScreen from '../screens/ProfileScreen'
 
 
 
@@ -82,7 +85,7 @@ export function RootNavigator({ initialRouteName }: RootNavigationProps) {
       <Stack.Screen name="Welcome" component={FirstScreen} options={{headerShown:false}}/>
       <Stack.Screen name="SignUp" component={SignUpScreen}   options={{headerShown:false}}/>
       <Stack.Screen name="SignIn" component={SignInScreen}  options={{headerShown:false}} />
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
+      <Stack.Screen name="Root" component={BottomTabNavigator}   options={{headerShown:false}}/>
     </Stack.Navigator>
   )
 }
@@ -123,11 +126,11 @@ function BottomTabNavigator() {
       />
 
       <BottomTab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={({ route: route1 }) => {
+        name="Menu"
+        component={MenuScreen}
+        options={({ route: route2 }) => {
           return {
-            title: 'Home',
+            title: 'Menu',
             headerShown: false,
             tabBarIcon: ({ color }) => (
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -140,11 +143,11 @@ function BottomTabNavigator() {
       />
 
       <BottomTab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={({ route: route1 }) => {
+        name="Order"
+        component={OrderScreen}
+        options={({ route: route3 }) => {
           return {
-            title: 'Home',
+            title: 'Order',
             headerShown: false,
             tabBarIcon: ({ color }) => (
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -157,9 +160,9 @@ function BottomTabNavigator() {
       />
 
       <BottomTab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={({ route: route1 }) => {
+        name="Profile"
+        component={ProfileScreen}
+        options={({ route: route4 }) => {
           return {
             title: 'Home',
             headerShown: false,
