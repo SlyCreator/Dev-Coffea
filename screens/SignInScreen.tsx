@@ -6,6 +6,7 @@ import tw from 'tailwind-react-native-classnames'
 import InputField from '../components/InputField'
 import { Feather } from '@expo/vector-icons'
 import Button from '../components/Button'
+import LightLogoSvg from '../components/svgs/LightLogoSvg'
 
 
 const SignInScreen = () => {
@@ -21,8 +22,7 @@ const SignInScreen = () => {
             <StackScreen> 
                 <View>
                    <View style={tw` justify-center items-center mt-20`}>
-                       <Text>Logo</Text>
-                       <Text style={tw`text-lg`}>Cafery</Text>
+                       <LightLogoSvg />
                    </View>
                    <View>
                         <View style={tw`mt-5`}>
