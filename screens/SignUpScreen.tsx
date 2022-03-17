@@ -11,6 +11,8 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen'
+import DarkLogoSvg from '../components/svgs/DarkLogo'
+import LightLogoSvg from '../components/svgs/LightLogoSvg'
 
 
 const SignUpScreen = () => {
@@ -47,8 +49,7 @@ const SignUpScreen = () => {
             <StackScreen> 
                 <View>
                    <View style={tw` justify-center items-center mt-20`}>
-                       <Text>Logo</Text>
-                       <Text style={tw`text-lg`}>Cafery</Text>
+                       <LightLogoSvg/>
                    </View>
                    <View>
                         <View style={tw`mt-5`}>

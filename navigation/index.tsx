@@ -1,4 +1,4 @@
-import { Feather, MaterialCommunityIcons } from '@expo/vector-icons'
+import { Feather, MaterialCommunityIcons, MaterialIcons, SimpleLineIcons } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import {
   DarkTheme,
@@ -22,6 +22,7 @@ import FirstScreen from '../screens/FirstScreen'
 import MenuScreen from '../screens/MenuScreen'
 import OrderScreen from '../screens/OrderScreen'
 import ProfileScreen from '../screens/ProfileScreen'
+import tw from 'tailwind-react-native-classnames'
 
 
 
@@ -82,6 +83,8 @@ const Header = (props: NativeStackHeaderProps) => {
 export function RootNavigator({ initialRouteName }: RootNavigationProps) {
   return (
     <Stack.Navigator >
+            <Stack.Screen name="Home" component={BottomTabNavigator}   options={{headerShown:false}}/>
+
       <Stack.Screen name="Welcome" component={FirstScreen} options={{headerShown:false}}/>
       <Stack.Screen name="SignUp" component={SignUpScreen}   options={{headerShown:false}}/>
       <Stack.Screen name="SignIn" component={SignInScreen}  options={{headerShown:false}} />
@@ -117,7 +120,7 @@ function BottomTabNavigator() {
             headerShown: false,
             tabBarIcon: ({ color }) => (
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                {/* <SvgHome stroke={color} /> */}
+                <SimpleLineIcons name="home" size={24} color={color} />
                 <Text style={{ color, textAlign: 'center' }}>Home</Text>
               </View>
             ),
@@ -134,7 +137,7 @@ function BottomTabNavigator() {
             headerShown: false,
             tabBarIcon: ({ color }) => (
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                {/* <SvgHome stroke={color} /> */}
+                <Feather name="coffee" size={24} color={color} />
                 <Text style={{ color, textAlign: 'center' }}>Menu</Text>
               </View>
             ),
@@ -151,7 +154,7 @@ function BottomTabNavigator() {
             headerShown: false,
             tabBarIcon: ({ color }) => (
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                {/* <SvgHome stroke={color} /> */}
+                <MaterialIcons name="list-alt" size={24} color={color} />
                 <Text style={{ color, textAlign: 'center' }}>Order</Text>
               </View>
             ),
@@ -167,8 +170,8 @@ function BottomTabNavigator() {
             title: 'Home',
             headerShown: false,
             tabBarIcon: ({ color }) => (
-              <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                {/* <SvgHome stroke={color} /> */}
+              <View style={{ justifyContent: 'center', alignItems: 'center',...[tw`mb-2`] }}>
+                <MaterialCommunityIcons name="account-circle" size={20} color={color} />
                 <Text style={{ color, textAlign: 'center' }}>Profile</Text>
               </View>
             ),
