@@ -3,44 +3,52 @@ import { View, Text, ScrollView, Image, FlatList, TouchableOpacity } from 'react
 import tw from 'tailwind-react-native-classnames'
 import StackScreen from '../components/StackScreen'
 import { Ionicons, Feather } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next'
+import { StackActions, useNavigation } from '@react-navigation/core';
+import { SmallProductCard } from '../components/Cards/ProductCard';
 
 
 const data = [
     {
         id: "123",
-        title: "Get a ride",
-        image: "https://links.papareact.com/3pn",
-        screen: "MapScreen",
+        title: "Capuccino",
+        image: "https://picsum.photos/id/431/300/300/",
+
     },
     {
         id: "456",
-        title: "Order",
-        image: "https://links.papareact.com/28w",
-        screen: "MapScreen",
+        title: "Espresso",
+        image: "https://picsum.photos/id/1060/200/200/",
+
     },
     {
         id: "1223",
-        title: "Get a ride",
-        image: "https://links.papareact.com/3pn",
-        screen: "MapScreen",
+        title: "Craisssant",
+        image: "https://picsum.photos/id/312/200/200/",
+      
     },
     {
         id: "4562",
         title: "Order",
-        image: "https://links.papareact.com/28w",
-        screen: "MapScreen",
+        image: "https://picsum.photos/id/1060/200/200/",
+
     }
 ]
 
 const HomeScreen = () => {
+    const {dispatch} = useNavigation();
+
+    const goCart = ()=>{
+        dispatch(StackActions.push('Cart'))
+    }
     return (
         <ScrollView style={tw`flex-1  bg-white`} showsVerticalScrollIndicator={false}>
             <StackScreen style={tw`flex-1 bg-white mx-2`}>
                 <View>
 
                     <View style={tw`flex-row justify-between mb-4`}>
-                        <Ionicons name="notifications-outline" size={24} color="black" />
-                        <Ionicons name="cart-outline" size={24} color="black" />
+                        <Ionicons name="notifications-outline" size={20} color="black" />
+                        <Ionicons name="cart-outline" size={20} color="black"  onPress={goCart}/>
                     </View >
 
                     <Text style={tw`text-base font-bold`}>Good Afternoon Andrew</Text>
@@ -79,16 +87,12 @@ const HomeScreen = () => {
                             keyExtractor={item => item.id}
                             showsHorizontalScrollIndicator={false}
                             renderItem={({ item }) => (
-                                <TouchableOpacity style={tw`my-2 `}>
-                                    <View>
-                                        <Image
-                                            style={{ width: 100, height: 100, resizeMode: 'contain' }}
-                                            source={{ uri: item.image }}
-                                        />
-                                        <Text style={tw`mt-2 text-lg font-semibold`}>{item.title}</Text>
-
-                                    </View>
-                                </TouchableOpacity>
+                    
+                                <SmallProductCard 
+                                    imageUri={item.image}
+                                    name = {item.title}
+                                    key={item.id}
+                                />
                             )}
                         />
                     </View>
