@@ -23,6 +23,10 @@ import MenuScreen from '../screens/MenuScreen'
 import OrderScreen from '../screens/OrderScreen'
 import ProfileScreen from '../screens/ProfileScreen'
 import tw from 'tailwind-react-native-classnames'
+import StackScreen from '../components/StackScreen'
+import CartScreen from '../screens/CartScreen'
+import CheckoutScreen from '../screens/CheckoutScreen'
+import OrderConfirmationScreen from '../screens/OrderConfirmationScreen'
 
 
 
@@ -71,7 +75,7 @@ const Header = (props: NativeStackHeaderProps) => {
           <Feather name={'arrow-left'} size={25} />
         </Pressable>
       </View>
-      <View style={{ width: '60%', justifyContent: 'center' }}>
+      <View style={{ width: '10%', justifyContent: 'center' }}>
         <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
           {props.options.title}
         </Text>
@@ -85,10 +89,13 @@ export function RootNavigator({ initialRouteName }: RootNavigationProps) {
     <Stack.Navigator >
             <Stack.Screen name="Home" component={BottomTabNavigator}   options={{headerShown:false}}/>
 
-      <Stack.Screen name="Welcome" component={FirstScreen} options={{headerShown:false}}/>
+      <Stack.Screen name="Welcome" component={FirstScreen} options={{ headerShown:false}}/>
       <Stack.Screen name="SignUp" component={SignUpScreen}   options={{headerShown:false}}/>
       <Stack.Screen name="SignIn" component={SignInScreen}  options={{headerShown:false}} />
       <Stack.Screen name="Root" component={BottomTabNavigator}   options={{headerShown:false}}/>
+      <Stack.Screen name="Cart" component={CartScreen} options={{title:'Shopping Cart', headerShown:true}} />
+      <Stack.Screen name="Checkout" component={CheckoutScreen} options={{title:'CheckOut',headerShown : true}} />
+      <Stack.Screen name="OrderConfirmation" component={OrderConfirmationScreen} options={{headerShown:false}} />
     </Stack.Navigator>
   )
 }

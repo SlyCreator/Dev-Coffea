@@ -27,6 +27,10 @@ export type RootStackParamList = {
   Menu:undefined
   Order:undefined
   Profile:undefined
+  Cart:undefined
+  Checkout:undefined
+  OrderConfirmation:undefined
+  TrackOrder:undefined
   Root: NavigatorScreenParams<RootTabParamList> | undefined
 }
 
