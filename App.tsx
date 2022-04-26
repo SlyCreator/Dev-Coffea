@@ -4,7 +4,7 @@ import { ApplicationProvider, IconRegistry, Layout, Text } from '@ui-kitten/comp
 import { EvaIconsPack } from '@ui-kitten/eva-icons'
 import store, { persistor } from './store'
 import { heightPercentageToDP } from 'react-native-responsive-screen'
- //import useCachedResources from './hooks/useCachedResources'
+import useCached from './hooks/useCached'
  import { useAppSelector } from './store/hooks'
 // import { StyleVariables } from './constants/Variables'
 import 'intl'
@@ -34,6 +34,10 @@ if (Platform.OS === 'android') {
 }
 
 export default function App() {
+  const isLoadingComplete = useCached()
+  if(!isLoadingComplete){
+    return null
+  }
   return (
     <View style={{ height: heightPercentageToDP('100%') }}>
       <ApplicationProvider

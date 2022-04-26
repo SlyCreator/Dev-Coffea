@@ -52,7 +52,7 @@ const HomeScreen = () => {
                     </View >
 
                     <Text style={tw`text-base font-bold`}>Good Afternoon Andrew</Text>
-                    <Text style={tw`text-sm font-bold`}>It's time for Coffee break</Text>
+                    <Text style={tw`text-sm font-medium`}>It's time for Coffee break</Text>
 
                     <View style={tw`bg-blue-100 p-5 my-4 rounded-lg`}>
                         <View style={tw`flex-row justify-between`}>
@@ -67,9 +67,9 @@ const HomeScreen = () => {
 
                     <View >
                         <Text style={[tw`text-sm font-bold py-2`]}>New Arrivals</Text>
-                        <View>
+                        <View style={tw`mb-4 bg-white shadow-sm rounded-lg p-2`}>
                             <Image
-                                style={{ width: 100, height: 100, resizeMode: 'contain' }}
+                                style={{ width: 300, height: 150, resizeMode: 'contain' }}
                                 source={{ uri: "https://links.papareact.com/28w" }}
                             />
 
@@ -79,7 +79,7 @@ const HomeScreen = () => {
                     <View>
                         <View style={tw`flex-row justify-between mt-4`}>
                             <Text style={tw`font-bold text-base`}>Recommended for you</Text>
-                            <Text style={tw`text-sm text-blue-500`}>All Menu</Text>
+                            <Text style={tw`text-sm text-blue-500 font-semibold`}>All Menu</Text>
                         </View>
                         <FlatList
                             data={data}

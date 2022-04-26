@@ -87,7 +87,7 @@ const Header = (props: NativeStackHeaderProps) => {
 export function RootNavigator({ initialRouteName }: RootNavigationProps) {
   return (
     <Stack.Navigator >
-            <Stack.Screen name="Home" component={BottomTabNavigator}   options={{headerShown:false}}/>
+    <Stack.Screen name="Menu" component={BottomTabNavigator}   options={{headerShown:false}}/>
 
       <Stack.Screen name="Welcome" component={FirstScreen} options={{ headerShown:false}}/>
       <Stack.Screen name="SignUp" component={SignUpScreen}   options={{headerShown:false}}/>
@@ -107,7 +107,7 @@ function BottomTabNavigator() {
   const [state, setState] = React.useState<string>()
   return (
     <BottomTab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Menu"
       screenOptions={{
         tabBarActiveTintColor: '#4B4780',
         tabBarShowLabel: false,

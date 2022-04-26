@@ -1,8 +1,10 @@
-import { Ionicons } from '@expo/vector-icons'
-import React from 'react'
-import { Image,View, Text, ScrollView, FlatList, TouchableOpacity } from 'react-native'
+import { Feather, Ionicons } from '@expo/vector-icons'
+import React,{useState} from 'react'
+import { Image,View, Text, ScrollView, FlatList,StyleSheet, TouchableOpacity } from 'react-native'
 import tw from 'tailwind-react-native-classnames'
 import { MeduimProductCard } from '../components/Cards/ProductCard'
+import InputField from '../components/InputField'
+import Input from '../components/InputField'
 import StackScreen from '../components/StackScreen'
 
 
@@ -53,6 +55,7 @@ const data = [
 
 
 const MenuScreen = () => {
+    const [search,setSearch] = useState('')
     return (
         <ScrollView style={tw`flex-1  bg-white`} showsVerticalScrollIndicator={false}>
             <StackScreen style={tw`flex-1 bg-white mx-2`}>
@@ -65,7 +68,24 @@ const MenuScreen = () => {
                     </View >
 
                     <View>
-                        <Text>Search Box</Text>
+                     <InputField 
+                                inputProps={{
+                                    placeholder: 'Find your favorites here',
+                                    accessoryRight: (color) => (
+                                        <Feather
+                                          onPress={() => {}}
+                                          color={color}
+                                          size={20}
+                                        />
+                                      ),
+                                      value: search,
+                                      onChangeText: (search) => {
+                                        setSearch( search)
+                                      },
+                                      textStyle: { fontSize: 12 },
+                                      style: styles.input,
+                                }}
+                            />
                     </View>
 
                     <View>
@@ -98,8 +118,10 @@ const MenuScreen = () => {
                                 imageUri={item.image}
                                 cost={"20"}
                                 key={item.id}
+                                
                            />
                         )}
+                        style = {tw``}
                         />
                     </View>
 
@@ -111,3 +133,11 @@ const MenuScreen = () => {
 }
 
 export default MenuScreen
+const styles = StyleSheet.create({
+    input: {
+        backgroundColor: '#EDEDED',
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#E0E0E0',
+      }
+})
