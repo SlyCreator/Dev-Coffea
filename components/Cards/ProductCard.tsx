@@ -7,7 +7,7 @@ export interface ProductCardPros {
     onPress?(event?: GestureResponderEvent): void
     imageUri?: React.ReactNode | JSX.Element | any
     name?: string
-    cost?: string
+    cost?: number
 }
 
 export const SmallProductCard = ({ name, imageUri, cost, onPress }: ProductCardPros) => {
@@ -26,13 +26,13 @@ export const SmallProductCard = ({ name, imageUri, cost, onPress }: ProductCardP
 }
 export const MeduimProductCard = ({ name, imageUri, cost, onPress }: ProductCardPros) => {
     return (
-        <TouchableOpacity style={tw`my-4 mr-4 p-4 rounded-lg bg-white shadow-lg`} onPress={onPress}>
+        <TouchableOpacity style={tw`my-2 mr-6  ml-1 p-4 rounded-lg bg-white shadow-lg`} onPress={onPress}>
             <View>
                 <Image
                     style={{ width: 110, height: 120, resizeMode: 'contain', borderRadius: 10 }}
                     source={{ uri: imageUri }}
                 />
-                <Text style={tw`mt-2 text-sm font-bold `}>{name}</Text>
+                <Text style={tw` text-sm font-bold `}>{name}</Text>
                 <View style={tw`flex-row justify-between`}>
                     <Text style={tw`text-gray-500`}>{`$${cost}`}</Text>
                     <View style={tw`bg-gray-200 rounded-sm p-1`}>
