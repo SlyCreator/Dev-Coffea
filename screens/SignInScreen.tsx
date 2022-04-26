@@ -60,7 +60,6 @@ const SignInScreen = () => {
                                         setValue({ ...value, password })
                                       },
                                       textStyle: { fontSize: 16 },
-                                      value: value.password,
                                       style: styles.input,
                                 }}
                             />
