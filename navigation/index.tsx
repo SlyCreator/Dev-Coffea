@@ -27,6 +27,9 @@ import StackScreen from '../components/StackScreen'
 import CartScreen from '../screens/CartScreen'
 import CheckoutScreen from '../screens/CheckoutScreen'
 import OrderConfirmationScreen from '../screens/OrderConfirmationScreen'
+import TrackScreen from '../screens/TrackScreen'
+import ProductScreen from '../screens/ProductScreen'
+import MenuSvg from '../components/svgs/MenuSvg'
 
 
 
@@ -87,15 +90,18 @@ const Header = (props: NativeStackHeaderProps) => {
 export function RootNavigator({ initialRouteName }: RootNavigationProps) {
   return (
     <Stack.Navigator >
-    <Stack.Screen name="Menu" component={BottomTabNavigator}   options={{headerShown:false}}/>
+    {/* //<Stack.Screen name="Menu" component={BottomTabNavigator}   options={{headerShown:false}}/> */}
 
       <Stack.Screen name="Welcome" component={FirstScreen} options={{ headerShown:false}}/>
       <Stack.Screen name="SignUp" component={SignUpScreen}   options={{headerShown:false}}/>
       <Stack.Screen name="SignIn" component={SignInScreen}  options={{headerShown:false}} />
       <Stack.Screen name="Root" component={BottomTabNavigator}   options={{headerShown:false}}/>
+      <Stack.Screen name="Product" component={ProductScreen} options={{ headerShown:false}}/>
       <Stack.Screen name="Cart" component={CartScreen} options={{title:'Shopping Cart', headerShown:true}} />
       <Stack.Screen name="Checkout" component={CheckoutScreen} options={{title:'CheckOut',headerShown : true}} />
       <Stack.Screen name="OrderConfirmation" component={OrderConfirmationScreen} options={{headerShown:false}} />
+      <Stack.Screen name="Track" component={TrackScreen} options={{ headerShown:false}}/>
+
     </Stack.Navigator>
   )
 }
@@ -107,7 +113,7 @@ function BottomTabNavigator() {
   const [state, setState] = React.useState<string>()
   return (
     <BottomTab.Navigator
-      initialRouteName="Menu"
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: '#4B4780',
         tabBarShowLabel: false,
@@ -144,7 +150,7 @@ function BottomTabNavigator() {
             headerShown: false,
             tabBarIcon: ({ color }) => (
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                <Feather name="coffee" size={24} color={color} />
+                <MenuSvg />
                 <Text style={{ color, textAlign: 'center' }}>Menu</Text>
               </View>
             ),
