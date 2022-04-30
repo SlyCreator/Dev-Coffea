@@ -6,6 +6,7 @@ import Button from '../components/Button'
 import { LongProductCard } from '../components/Cards/ProductCard'
 import InputField from '../components/InputField'
 import StackScreen from '../components/StackScreen'
+import { AppTheme } from '../constants/Variables'
 
 
 
@@ -14,12 +15,13 @@ const data = [
         id: "1323",
         title: "Capuccino",
         image: "https://picsum.photos/id/431/300/300/",
-
+        cost: 12.50
     },
     {
         id: "456",
         title: "Espresso",
         image: "https://picsum.photos/id/1060/200/200/",
+        cost: 3.25
 
     },
 
@@ -46,12 +48,22 @@ const CartScreen = () => {
                             <LongProductCard
                                 name={item.title}
                                 imageUri={item.image}
-                                cost={"20"}
+                                cost={item.cost}
                                 key={item.id}
+                                longType='cart'
                             />
                         )}
                     />
-
+ <Button
+                            title='Add More Items'
+                            titleStyle={{
+                                color: AppTheme.primaryColor,
+                                textTransform: 'none',
+                                fontSize: 14
+                            }}
+                            outline
+                            onPress={goCheckout}
+                        />
                     <View style={tw`flex justify-between flex-row`}>
                         <InputField
                             inputProps={{
@@ -63,6 +75,9 @@ const CartScreen = () => {
                                 textStyle: { fontSize: 16 },
                                 value: value.promo,
                                 style: styles.input,
+                            }}
+                            style={{
+                                width:'65%'
                             }}
                         />
                         <Button
