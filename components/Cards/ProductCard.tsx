@@ -3,6 +3,8 @@ import { TouchableOpacity, View, Image, Text, GestureResponderEvent } from "reac
 import tw from "tailwind-react-native-classnames"
 import { AntDesign } from '@expo/vector-icons';
 import Button from "../Button";
+import App from "../../App";
+import { AppTheme } from "../../constants/Variables";
 
 type longCardType = 'order' | 'cart'
 export interface ProductCardPros {
@@ -13,6 +15,7 @@ export interface ProductCardPros {
     detail?: [string]
     longType?: longCardType,
     status?: string
+    state?: boolean
 }
 
 export const SmallProductCard = ({ name, imageUri, cost, onPress }: ProductCardPros) => {
@@ -50,7 +53,7 @@ export const MeduimProductCard = ({ name, imageUri, cost, onPress }: ProductCard
 }
 
 export const LongProductCard = ({
-    name, imageUri, cost, longType, status, detail, onPress
+    name, imageUri, cost, longType, status, state, detail, onPress
 }: ProductCardPros) => {
     return (
         <TouchableOpacity style={tw`my-2 mr-2  ml-1 flex-row rounded-lg bg-white shadow-lg`} onPress={onPress}>
@@ -60,24 +63,41 @@ export const LongProductCard = ({
                 source={{ uri: imageUri }}
             />
 
-            {longType == 'order' ? <View style={tw`flex-col ml-4 mt-4`}>
-                <Text style={tw` text-sm font-bold ${(status != 'Track-Pickup') ? 'text-green-400' : 'text-black'}  `}>{status}</Text>
-                <Text style={tw` text-sm font-bold `}>{name}</Text>
-                {detail?.map(item => <Text style={tw`text-gray-500`}>{item}</Text>)}
-            
-                  <Button
-                            style={{
-                                width: '75%'
-                            }}
-                            title='Track Order'
-                            titleStyle={{
-                                color: '#FFF',
-                                textTransform: 'none',
-                                fontSize: 14
-                            }}
-                            onPress={()=>{}}
-                        />
-            </View> :
+            {longType == 'order' ?
+                <View style={tw`flex-col ml-4 mt-1`}>
+                    <Text style={tw` text-sm font-bold ${(status != 'Today - Pickup') ? 'text-green-400' : 'text-black'}  `}>{status}</Text>
+                    <Text style={tw` text-sm font-medium text-gray-600 `}>{name}</Text>
+                    {detail?.map(item => <Text style={tw`text-gray-500`}>{item}</Text>)}
+                    {state ? <Button
+                        style={{
+                            width: '75%'
+                        }}
+                        title='Track Order'
+                        titleStyle={{
+                            color: '#FFF',
+                            textTransform: 'none',
+                            fontSize: 14
+                        }}
+
+
+                        onPress={() => { }}
+                    /> : <Button
+                        style={{
+                            width: '75%'
+                        }}
+                        title='Track Order'
+                        titleStyle={{
+                            color: AppTheme.primaryColor,
+                            textTransform: 'none',
+                            fontSize: 14
+                        }}
+                        outline
+
+                        onPress={() => { }}
+                    />}
+
+
+                </View> :
                 <View style={tw`flex-row  py-4 px-4  justify-between`}>
                     <View style={tw`flex pr-16  `}>
                         <Text style={tw`font-bold pb-8`}>1x {name}</Text>

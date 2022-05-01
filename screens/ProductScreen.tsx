@@ -28,16 +28,16 @@ const ProductScreen = () => {
             }}
             style={{width:'100%',height:250}}
           />
-          <View style={tw` bg-white h-full `}>
-              <Text>Capuccino</Text>
-              <Text>$3.25</Text>
-              <Text>Espreso coffee topped with frothed hot milk and
+          <View style={tw` bg-white h-full px-6 py-6 `}>
+              <Text style={tw`text-lg font-bold  `}>Capuccino</Text>
+              <Text style={tw`text-sm font-bold text-blue-700 my-2`}>$3.25</Text>
+              <Text style={tw`text-sm text-gray-500 font-medium `}>Espreso coffee topped with frothed hot milk and
                   cream and flavored with cinnamon
               </Text>
-              <Text>Size</Text>
-              <View style={tw`flex-row items-center justify-center justify-between px-6`}>
+              <Text style={tw`text-sm font-bold text-gray-600 my-2 pb-4`}>Size</Text>
+              <View style={tw`flex-row items-center justify-center justify-between px-6 `}>
                    
-                  <View>
+                  <View style={tw`p-4`}>
                       <MenuSvg />
                       <Text>12 0z</Text>
                   </View>
@@ -50,19 +50,20 @@ const ProductScreen = () => {
                       <Text>12 0z</Text>
                   </View>
               </View>
-              <Text>Sugar(in Cubes)</Text>
-              <View style={tw`bg-gray-300 flex-row `}>
-                  <Text>0</Text>
+              <Text style={tw`text-sm font-bold text-gray-600 my-4`}>Sugar(in Cubes)</Text>
+              <View style={tw`bg-gray-100 flex-row justify-around py-2 rounded-lg mb-6`}>
+                  <Text style={tw`bg-blue-300`}>0</Text>
                   <Text>1</Text>
                   <Text>2</Text>
                   <Text>3</Text>
                   <Text>4</Text>
               </View>
-              <Text>Additional Detail</Text>
+              <Text style={tw`text-sm font-bold text-gray-600`}>Additional Detail</Text>
               <Input inputProps={{
                   keyboardType:'default'
                   
               }}/>
+              <Text style={tw`text-sm font-bold text-gray-600`}>Amount</Text>
           </View>
       </ScrollView>
     )

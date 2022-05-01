@@ -38,8 +38,8 @@ const CartScreen = () => {
     return (
         <ScrollView showsVerticalScrollIndicator={false} style={tw`bg-white flex`}>
             <StackScreen style={tw`flex-1 bg-white`}>
-                <View>
-                    <View><Text>Order Summary</Text></View>
+                <View style={tw`flex-1 bg-white`} >
+                    <Text style={tw`font-bold text-gray-500`}>Order Summary</Text>
                     <FlatList
                         data={data}
 
@@ -54,16 +54,16 @@ const CartScreen = () => {
                             />
                         )}
                     />
- <Button
-                            title='Add More Items'
-                            titleStyle={{
-                                color: AppTheme.primaryColor,
-                                textTransform: 'none',
-                                fontSize: 14
-                            }}
-                            outline
-                            onPress={goCheckout}
-                        />
+                    <Button
+                        title='Add More Items'
+                        titleStyle={{
+                            color: AppTheme.primaryColor,
+                            textTransform: 'none',
+                            fontSize: 14
+                        }}
+                        outline
+                        onPress={goCheckout}
+                    />
                     <View style={tw`flex justify-between flex-row`}>
                         <InputField
                             inputProps={{
@@ -77,7 +77,7 @@ const CartScreen = () => {
                                 style: styles.input,
                             }}
                             style={{
-                                width:'65%'
+                                width: '65%'
                             }}
                         />
                         <Button
