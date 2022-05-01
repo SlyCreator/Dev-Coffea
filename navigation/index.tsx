@@ -75,11 +75,11 @@ const Header = (props: NativeStackHeaderProps) => {
             goBack()
           }}
         >
-          <Feather name={'arrow-left'} size={25} />
+          <Feather name={'arrow-left'} size={20} />
         </Pressable>
       </View>
       <View style={{ width: '10%', justifyContent: 'center' }}>
-        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+        <Text style={tw`text-base font-bold`}>
           {props.options.title}
         </Text>
       </View>

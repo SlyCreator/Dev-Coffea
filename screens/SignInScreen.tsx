@@ -16,6 +16,22 @@ const SignInScreen = () => {
         email: '',
         password:''
     })
+    const onHome = ()=>{
+        // if (!EmailRegex.test(value?.email)) {
+        //     showErrorAlert({
+        //       toast: {
+        //         message: t('Please enter a valid email.'),
+        //         type: 'warning',
+        //       },
+        //     })
+        //     return
+        //   }
+      
+          //dispatchStore(setLoading(true))
+          //TODO: Add Api
+          dispatch(StackActions.push('Root'))
+       // }
+    }
 
     return (
         <View style={tw`bg-white flex-1`}>
@@ -72,6 +88,7 @@ const SignInScreen = () => {
                                     textTransform:'none',
                                     fontSize:14
                                 }}
+                                onPress={onHome}
                             />
                         </View>
                    </View>

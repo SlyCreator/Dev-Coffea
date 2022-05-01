@@ -6,6 +6,7 @@ import { Ionicons, Feather } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next'
 import { StackActions, useNavigation } from '@react-navigation/core';
 import { SmallProductCard } from '../components/Cards/ProductCard';
+import Header from '../components/Header';
 
 
 const data = [
@@ -38,19 +39,17 @@ const data = [
 const HomeScreen = () => {
     const {dispatch} = useNavigation();
 
-    const goCart = ()=>{
-        dispatch(StackActions.push('Cart'))
+    const goToProduct = () => {
+        dispatch(
+            StackActions.push('Product')
+        )
     }
     return (
         <ScrollView style={tw`flex-1  bg-white`} showsVerticalScrollIndicator={false}>
             <StackScreen style={tw`flex-1 bg-white mx-2`}>
                 <View>
 
-                    <View style={tw`flex-row justify-between mb-4`}>
-                        <Ionicons name="notifications-outline" size={20} color="black" />
-                        <Ionicons name="cart-outline" size={20} color="black"  onPress={goCart}/>
-                    </View >
-
+                    <Header />
                     <Text style={tw`text-base font-bold`}>Good Afternoon Andrew</Text>
                     <Text style={tw`text-sm font-medium`}>It's time for Coffee break</Text>
 
@@ -92,6 +91,7 @@ const HomeScreen = () => {
                                     imageUri={item.image}
                                     name = {item.title}
                                     key={item.id}
+                                    onPress={goToProduct}
                                 />
                             )}
                         />

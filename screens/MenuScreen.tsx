@@ -19,6 +19,7 @@ import ColdDrinkSvg from '../components/svgs/ColdDrinkSvg'
 import BreadSvg from '../components/svgs/BreadSvg'
 import CakeSvg from '../components/svgs/CakeSvg'
 import { StackActions, useNavigation } from '@react-navigation/core'
+import Header from '../components/Header'
 
 const catDat = [
   {
@@ -104,11 +105,7 @@ const MenuScreen = () => {
     >
       <StackScreen style={tw`flex-1 bg-white mx-2`}>
         <View>
-          <View style={tw`flex-row justify-between mb-4`}>
-            <Ionicons name="notifications-outline" size={20} color="black" />
-            <Text style={tw`text-base font-bold`}>Menu</Text>
-            <Ionicons name="cart-outline" size={20} color="black" />
-          </View>
+        <Header title={"Menu"}/>
 
           <View>
             <InputField
