@@ -30,6 +30,7 @@ import OrderConfirmationScreen from '../screens/OrderConfirmationScreen'
 import TrackScreen from '../screens/TrackScreen'
 import ProductScreen from '../screens/ProductScreen'
 import MenuSvg from '../components/svgs/MenuSvg'
+import { AppTheme, isIOS } from '../constants/Variables'
 
 
 
@@ -79,7 +80,7 @@ const Header = (props: NativeStackHeaderProps) => {
         </Pressable>
       </View>
       <View style={{ width: '10%', justifyContent: 'center' }}>
-        <Text style={tw`text-base font-bold`}>
+        <Text style={tw`text-base font-bold text-`}>
           {props.options.title}
         </Text>
       </View>
@@ -90,17 +91,17 @@ const Header = (props: NativeStackHeaderProps) => {
 export function RootNavigator({ initialRouteName }: RootNavigationProps) {
   return (
     <Stack.Navigator >
-    {/* //<Stack.Screen name="Menu" component={BottomTabNavigator}   options={{headerShown:false}}/> */}
+      {/* //<Stack.Screen name="Menu" component={BottomTabNavigator}   options={{headerShown:false}}/> */}
 
-      <Stack.Screen name="Welcome" component={FirstScreen} options={{ headerShown:false}}/>
-      <Stack.Screen name="SignUp" component={SignUpScreen}   options={{headerShown:false}}/>
-      <Stack.Screen name="SignIn" component={SignInScreen}  options={{headerShown:false}} />
-      <Stack.Screen name="Root" component={BottomTabNavigator}   options={{headerShown:false}}/>
-      <Stack.Screen name="Product" component={ProductScreen} options={{ headerShown:false}}/>
-      <Stack.Screen name="Cart" component={CartScreen} options={{title:'Shopping Cart', headerShown:true}} />
-      <Stack.Screen name="Checkout" component={CheckoutScreen} options={{title:'CheckOut',headerShown : true}} />
-      <Stack.Screen name="OrderConfirmation" component={OrderConfirmationScreen} options={{headerShown:false}} />
-      <Stack.Screen name="Track" component={TrackScreen} options={{ headerShown:false}}/>
+      <Stack.Screen name="Welcome" component={FirstScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="SignIn" component={SignInScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
+      <Stack.Screen name="Product" component={ProductScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Cart" component={CartScreen} options={{ title: 'Shopping Cart', headerShown: true }} />
+      <Stack.Screen name="Checkout" component={CheckoutScreen} options={{ title: 'CheckOut', headerShown: true }} />
+      <Stack.Screen name="OrderConfirmation" component={OrderConfirmationScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Track" component={TrackScreen} options={{ headerShown: false }} />
 
     </Stack.Navigator>
   )
@@ -115,12 +116,13 @@ function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: '#4B4780',
-        tabBarShowLabel: false,
+        tabBarActiveTintColor: AppTheme.primaryColor,
+        tabBarShowLabel: true,
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#F8F7F7',
-          padding: 20,
+          backgroundColor: '#FFF',
+          paddingTop: 5,
+          paddingBottom:5
         },
       }}
     >
@@ -134,7 +136,7 @@ function BottomTabNavigator() {
             tabBarIcon: ({ color }) => (
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <SimpleLineIcons name="home" size={24} color={color} />
-                <Text style={{ color, textAlign: 'center' }}>Home</Text>
+                {isIOS && <Text style={{ color, textAlign: 'center' }}>Home</Text>}
               </View>
             ),
           }
@@ -151,7 +153,7 @@ function BottomTabNavigator() {
             tabBarIcon: ({ color }) => (
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <MenuSvg />
-                <Text style={{ color, textAlign: 'center' }}>Menu</Text>
+                {isIOS && <Text style={{ color, textAlign: 'center' }}>Menu</Text>}
               </View>
             ),
           }
@@ -168,7 +170,7 @@ function BottomTabNavigator() {
             tabBarIcon: ({ color }) => (
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <MaterialIcons name="list-alt" size={24} color={color} />
-                <Text style={{ color, textAlign: 'center' }}>Order</Text>
+                {isIOS && <Text style={{ color, textAlign: 'center' }}>Order</Text>}
               </View>
             ),
           }
@@ -180,12 +182,13 @@ function BottomTabNavigator() {
         component={ProfileScreen}
         options={({ route: route4 }) => {
           return {
-            title: 'Home',
+            title: 'Profile',
             headerShown: false,
             tabBarIcon: ({ color }) => (
-              <View style={{ justifyContent: 'center', alignItems: 'center',...[tw`mb-2`] }}>
-                <MaterialCommunityIcons name="account-circle" size={20} color={color} />
-                <Text style={{ color, textAlign: 'center' }}>Profile</Text>
+              <View style={{ justifyContent: 'center', alignItems: 'center', ...[tw`mb-2`] }}>
+                <MaterialCommunityIcons name="account-circle" size={24} color={color} />
+                {isIOS && <Text style={{ color, textAlign: 'center' }}>Profile</Text>
+                }
               </View>
             ),
           }

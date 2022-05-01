@@ -85,7 +85,7 @@ export const LongProductCard = ({
                         style={{
                             width: '75%'
                         }}
-                        title='Track Order'
+                        title='Re-Order'
                         titleStyle={{
                             color: AppTheme.primaryColor,
                             textTransform: 'none',

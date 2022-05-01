@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 const TrackScreen = () => {
     return (
         <View>
-            <Text></Text>
+            <Text>Track</Text>
         </View>
     )
 }
